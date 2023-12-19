@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "206325504720",
+    "firebase_url": "https://tunisiepromo-47360-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "tunisiepromo-47360",
+    "storage_bucket": "tunisiepromo-47360.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:206325504720:android:21b1fac3eea5962a019cd5",
+        "android_client_info": {
+          "package_name": "com.example.tunisiepromo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_SQ3_ox2JqPL9QebTwScvR8h_OoQ9iL8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

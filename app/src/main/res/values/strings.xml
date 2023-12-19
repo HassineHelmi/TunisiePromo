@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">TunisiePromo</string>
+    <string name="login">Login</string>
+    <string name="discover_amazing_promotions_and_discounts_near_you">Discover amazing promotions and discounts near you !</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="saisir_votre_mot_de_passe">saisir votre mot de passe</string>
+    <string name="saisir_votre_email">saisir votre email</string>
+    <string name="signup">Signup</string>
+    <string name="sign_up">sign up</string>
+    <string-array name="Role" translatable="true">
+        <item>Consumer</item>
+        <item>Merchand</item>
+    </string-array>
+</resources>

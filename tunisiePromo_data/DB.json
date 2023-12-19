@@ -1,0 +1,122 @@
+{
+    "shoes": {
+      "category": {
+        "Athletic": {
+          "shoeId1": {
+            "Name": "Red Sport Nike Shoes ",
+            "description": "light shoes for running and various sport activities",
+            "size": [38, 39, 40, 41, 42, 43, 44, 45],
+            "promotionPercentage": 20,
+            "priceBP": 80.0,
+            "priceAP": 64.0,
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/tunisiepromo-47360.appspot.com/o/shoes_img%2Fathletic%2Fathletic2.jpg?alt=media&token=958266ee-4b97-48c0-be70-61ba09e6b3d0"
+          },
+          "shoeId2": {
+            "Name": "Green Sport Nike Shoes",
+            "description": "Confortable light shoes for running and various sport activities",
+            "size": [38, 39, 40, 41, 42, 43, 44, 45],
+            "promotionPercentage": 15,
+            "priceBP": 70.0,
+            "priceAP": 59.5,
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/tunisiepromo-47360.appspot.com/o/shoes_img%2Fathletic%2Fathletic3.jpg?alt=media&token=b6885da5-bc03-4952-be94-e1d13dd6eb72"
+          },
+          "shoeId3": {
+            "Name": "Trail Running Shoes",
+            "description": "Trail-ready running shoes with excellent grip",
+            "size": [38, 39, 40, 41, 42, 43, 44, 45],
+            "promotionPercentage": 25,
+            "priceBP": 90.0,
+            "priceAP": 67.5,
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/tunisiepromo-47360.appspot.com/o/shoes_img%2Fathletic%2Fathletic4.jpg?alt=media&token=209b1473-9433-4643-b089-f7c0750ddb9d"
+          },
+          "shoeId4": {
+            "Name": "Orange Sport Nike Shoes",
+            "description": "running shoes with excellent grip",
+            "size": [38, 39, 40, 41, 42, 43, 44, 45],
+            "promotionPercentage": 25,
+            "priceBP": 90.0,
+            "priceAP": 67.5,
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/tunisiepromo-47360.appspot.com/o/shoes_img%2Fathletic%2Fathletic1.jpg?alt=media&token=af3e9fba-0905-4a59-9963-4f57495a2e57"
+          }
+        },
+        "Casual": {
+          "shoeId5": {
+            "Name": " Gray modern Casual Sneakers ",
+            "description": "Stylish casual sneakers",
+            "size": [38, 39, 40, 41, 42, 43, 44, 45],
+            "promotionPercentage": 10,
+            "priceBP": 60.0,
+            "priceAP": 54.0,
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/tunisiepromo-47360.appspot.com/o/shoes_img%2Fcasual%2Fcasual1.jpg?alt=media&token=2e7a7472-030e-4f57-8acd-fb7fe7e459f3"
+          },
+          "shoeId6": {
+            "Name": "Modern Confortable Casual sneakers ",
+            "description": "Comfortable sneakers for everyday wear",
+            "size": [38, 39, 40, 41, 42, 43, 44, 45],
+            "promotionPercentage": 25,
+            "priceBP": 50.0,
+            "priceAP": 37.5,
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/tunisiepromo-47360.appspot.com/o/shoes_img%2Fcasual%2Fcasual2.jpg?alt=media&token=6e96cff1-c11c-4cd9-94da-3b1913e35051"
+          },
+          "shoeId7": {
+            "Name": "Canvas Slip-Ons White ",
+            "description": "Casual slip-on shoes with a canvas upper",
+            "size": [38, 39, 40, 41, 42, 43, 44, 45],
+            "promotionPercentage": 15,
+            "priceBP": 45.0,
+            "priceAP": 38.25,
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/tunisiepromo-47360.appspot.com/o/shoes_img%2Fcasual%2Fcasual3.jpg?alt=media&token=e36150d2-d457-4e8c-9767-a2ee4b5a8932"
+          },
+          "shoeId8": {
+            "Name": "Canvas Slip-Ons Brown",
+            "description": " Brownn Casual slip-on shoes for everyday use",
+            "size": [38, 39, 40, 41, 42, 43, 44, 45],
+            "promotionPercentage": 15,
+            "priceBP": 45.0,
+            "priceAP": 38.25,
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/tunisiepromo-47360.appspot.com/o/shoes_img%2Fcasual%2Fcasual4.jpg?alt=media&token=fea39760-ea8d-40c1-be17-8be9c14ac32c"
+          }
+        },
+        "Formal": {
+          "shoeId9": {
+            "Name": "Classic Oxford Shoes",
+            "description": "Elegant formal oxford shoes",
+            "size": [38, 39, 40, 41, 42, 43, 44, 45],
+            "promotionPercentage": 15,
+            "priceBP": 90.0,
+            "priceAP": 76.5,
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/tunisiepromo-47360.appspot.com/o/shoes_img%2Fformal%2Fformal1.jpg?alt=media&token=12217bff-9594-4d56-aeea-d13992f2a03c"
+          },
+          "shoeId10": {
+            "Name": "Pale Brown shoes ",
+            "description": "confortable shoes with stitching",
+            "size": [38, 39, 40, 41, 42, 43, 44, 45],
+            "promotionPercentage": 20,
+            "priceBP": 85.0,
+            "priceAP": 68.0,
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/tunisiepromo-47360.appspot.com/o/shoes_img%2Fformal%2Fformal2.png?alt=media&token=abc59f7d-479d-4da2-a0f2-a341f5100a32"
+          },
+          "shoeId11": {
+            "Name": "Cap-Toe Oxford Shoes",
+            "description": "Classic cap-toe oxford shoes for a polished look",
+            "size": [38, 39, 40, 41, 42, 43, 44, 45],
+            "promotionPercentage": 15,
+            "priceBP": 95.0,
+            "priceAP": 80.75,
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/tunisiepromo-47360.appspot.com/o/shoes_img%2Fformal%2Fformal4.png?alt=media&token=3ec5b65d-62a2-49ba-88cf-61b28f7052c2"
+          },
+          
+          "shoeId12": {
+            "Name": "Wingtip Brogues",
+            "description": "Formal wingtip brogue shoes",
+            "size": [38, 39, 40, 41, 42, 43, 44, 45],
+            "promotionPercentage": 18,
+            "priceBP": 100.0,
+            "priceAP": 82.0,
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/tunisiepromo-47360.appspot.com/o/shoes_img%2Fformal%2Fformal3.png?alt=media&token=64a36602-e9af-4dbc-8221-1f1a0ad0dd71"
+          }
+        }
+      }
+    }
+  }
+  
