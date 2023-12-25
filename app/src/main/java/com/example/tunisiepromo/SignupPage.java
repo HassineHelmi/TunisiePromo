@@ -32,6 +32,7 @@ public class SignupPage extends AppCompatActivity {
         Spinner spinner = findViewById(R.id.spinner);
         Button signupButton = findViewById(R.id.SignupButton);
 
+
         // Set up click listener for the create account button
         signupButton.setOnClickListener(view -> {
             // Get user input from email and password fields

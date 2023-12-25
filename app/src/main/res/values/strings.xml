@@ -7,6 +7,8 @@
     <string name="saisir_votre_email">saisir votre email</string>
     <string name="signup">Signup</string>
     <string name="sign_up">sign up</string>
+    <string name="search" />
+    <string name="tunisie_promo">Tunisie Promo</string>
     <string-array name="Role" translatable="true">
         <item>Consumer</item>
         <item>Merchand</item>

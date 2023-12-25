@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.tunisiepromo"
-        minSdk = 24
+        minSdk = 28
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -41,7 +41,15 @@ dependencies {
     implementation("com.google.firebase:firebase-database:20.3.0")
     implementation("com.google.firebase:firebase-storage:20.3.0")
     implementation("com.google.firebase:firebase-messaging:23.4.0")
+    implementation("com.android.car.ui:car-ui-lib:2.5.1")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    // Dependency FirebaseUI for Firebase Realtime Database
+    implementation ("com.firebaseui:firebase-ui-database:8.0.2")
+    implementation ("com.google.android.material:material:1.11.0")
+    // Dependency for Firebase REaltime Database
+    implementation ("com.google.firebase:firebase-database:20.3.0")
+    implementation ("com.github.bumptech.glide:glide:4.12.0") // Use the latest version available
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
 }
