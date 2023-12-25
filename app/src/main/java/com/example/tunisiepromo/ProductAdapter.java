@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
@@ -22,12 +21,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     private Context context;
 
     // Search view
-    private List<Shoe> originalShoesList; // Copy of the original list for filtering
 
     // Constructor with search functionality
     public ProductAdapter(List<Shoe> shoesList, Context context) {
         this.shoesList = shoesList;
-        this.originalShoesList = new ArrayList<>(shoesList);
         this.context = context;
     }
 

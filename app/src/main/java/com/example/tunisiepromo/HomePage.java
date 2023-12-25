@@ -9,9 +9,9 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.SearchView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,6 +29,9 @@ public class HomePage extends AppCompatActivity {
 
     private List<Shoe> shoesList;
     private List<Shoe> originalShoesList;
+    private Button athleticCategoryButton;
+    private Button casualCategoryButton;
+    private Button formalCategoryButton;
 
 
     private Button buttonAddToCart;
@@ -48,6 +51,24 @@ public class HomePage extends AppCompatActivity {
         String hintText = "What are you looking for ?";
         SpannableString spannableString = new SpannableString(hintText);
         spannableString.setSpan(new ForegroundColorSpan(hintColor), 0, hintText.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+
+
+        //setting up filtering products bu categories
+        athleticCategoryButton = findViewById(R.id.AthleticCategoryButton);
+        casualCategoryButton = findViewById(R.id.CasualCategoryButton);
+        formalCategoryButton = findViewById(R.id.FormalCategoryButton);
+
+
+        athleticCategoryButton.setOnClickListener(view -> filterByCategory("Athletic"));
+        casualCategoryButton.setOnClickListener(view -> filterByCategory("Casual"));
+        formalCategoryButton.setOnClickListener(view -> filterByCategory("Formal"));
+
+
+
+
+
+
 
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("/products");
@@ -120,4 +141,25 @@ public class HomePage extends AppCompatActivity {
 
 
     }
-}
+
+    // Filter the list by category
+    private void filterByCategory(String category){
+        // Clear the current list before adding filtered items
+        shoesList.clear();
+
+        // If the selected category is "All," display the original list
+        if (category.equals("All")) {
+            shoesList.addAll(originalShoesList);
+        } else {
+            // If a specific category is selected, display the filtered list
+            for (Shoe shoe : originalShoesList) {
+                if (shoe.getCategory().equalsIgnoreCase(category)) {
+                    shoesList.add(shoe);
+                }
+            }
+        }
+
+        productAdapter.notifyDataSetChanged();
+    }
+    }
+

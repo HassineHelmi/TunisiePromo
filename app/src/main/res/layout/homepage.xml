@@ -81,11 +81,12 @@
         android:layout_height="0dp"
         tools:listitem="@layout/product_item"
         android:layout_marginTop="12dp"
-        android:layout_marginBottom="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CasualCategoryButton" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
