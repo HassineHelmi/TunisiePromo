@@ -1,64 +1,106 @@
-<!-- product_item.xml -->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardViewProduct"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="#e5e5e5"
-    android:padding="16dp">
-
-    <ImageView
-        android:id="@+id/imageViewProduct"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/tunsiepromologo"
-        android:layout_centerVertical="true"/>
+    android:layout_margin="8dp"
+    android:outlineSpotShadowColor="#123123"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="8dp"
+    app:cardPreventCornerOverlap="false"
+                                >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_toEndOf="@id/imageViewProduct"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#FFFFFF">
 
-        <TextView
-            android:id="@+id/textViewProductCategory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Category"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
+        <!-- Product Image -->
+        <ImageView
+            android:id="@+id/imageViewProduct"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/tunsiepromologo"/>
 
-        <TextView
-            android:id="@+id/textViewProductName"
-            android:layout_width="wrap_content"
+        <!-- Product Details -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Product Name"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:padding="16dp"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textViewProductPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Price: $0.00"
-            android:textSize="16sp"
-            android:textColor="#7F50"/>
+            <!-- Product Category -->
+            <TextView
+                android:id="@+id/textViewProductCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Category"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
 
-        <TextView
-            android:id="@+id/textViewPromotionPercentage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Discount: 0%"
-            android:textSize="14sp"
-            android:textColor="#00796B"/> <!-- Customize color -->
 
-        <Button
-            android:id="@+id/buttonAddToCart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add to Cart"
-            android:layout_marginTop="8dp"/>
+            <!-- Product Name -->
+            <TextView
+                android:id="@+id/textViewProductName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Product Name"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"/>
+
+            <!-- Product Price -->
+            <TextView
+                android:id="@+id/textViewProductPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Price: $0.00"
+                android:textColor="#4CAF50"
+
+                android:textSize="20sp" />
+
+            <!-- Promotion Percentage -->
+            <TextView
+                android:id="@+id/textViewPromotionPercentage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Discount: 0%"
+                android:textSize="14sp"
+                android:textColor="#EF6C00"
+                android:layout_marginTop="4dp"/>
+            <TextView
+                android:id="@+id/textViewProductPriceBeforePromo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price Before Promo"
+                android:textSize="16sp"
+                android:textColor="#757575"
+                android:layout_marginTop="8dp"
+                android:textStyle="italic"/>
+
+            <!-- Add to Cart Button -->
+            <Button
+                android:id="@+id/buttonAddToCart"
+                android:layout_width="200dp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:text="Add to Cart"
+                android:textSize="20sp"
+                android:layout_marginTop="16dp"/>
+
+        </LinearLayout>
+
     </LinearLayout>
 
-</RelativeLayout>
+</androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+

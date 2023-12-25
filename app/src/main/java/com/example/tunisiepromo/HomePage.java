@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.SearchView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,8 +24,13 @@ import java.util.List;
 
 public class HomePage extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private ProductAdapter productAdapter;
+    private ProductAdapter productAdapter; // Use ProductAdapter, not ProductViewHolder
+    private androidx.appcompat.widget.SearchView searchView;
+
     private List<Shoe> shoesList;
+    private List<Shoe> originalShoesList;
+
+
     private Button buttonAddToCart;
 
     @Override
@@ -35,18 +41,14 @@ public class HomePage extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         shoesList = new ArrayList<>();
-        productAdapter = new ProductAdapter(shoesList, this);
+        productAdapter = new ProductAdapter(shoesList, this); // Corrected usage
         recyclerView.setAdapter(productAdapter);
-
 
         int hintColor = Color.GRAY;
         String hintText = "What are you looking for ?";
         SpannableString spannableString = new SpannableString(hintText);
         spannableString.setSpan(new ForegroundColorSpan(hintColor), 0, hintText.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        //searchView.setQueryHint(spannableString);
 
-        // Set up the SearchView
-        //setupSearchView();
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("/products");
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -63,6 +65,8 @@ public class HomePage extends AppCompatActivity {
                         // Log or display an error message for better debugging
                     }
                 }
+                originalShoesList =new ArrayList<>();
+                originalShoesList.addAll(shoesList);
                 productAdapter.notifyDataSetChanged();
             }
 
@@ -70,13 +74,50 @@ public class HomePage extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
                 //handle databaseError
             }
+        });
+
+        // Set up the SearchView
+        searchView = findViewById(R.id.searchView);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+
+                // Clear the current list before adding filtered items
+                shoesList.clear();
+                shoesList.addAll(filterByName(query));
+                productAdapter.notifyDataSetChanged();
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                // Clear the current list before adding filtered items
+                shoesList.clear();
+                shoesList.addAll(filterByName(newText));
+                productAdapter.notifyDataSetChanged();
+                return true;
+            }
+            public List<Shoe> filterByName(String newText) {
+                List<Shoe> filteredList = new ArrayList<>();
+
+                // If the search query is empty, display the original list
+                if (newText.isEmpty()) {
+                    filteredList.addAll(originalShoesList);
+                } else {
+                    // If the search query is not empty, display the filtered list
+                    for (Shoe shoe : originalShoesList) {
+                        if (shoe.getName().toLowerCase().contains(newText.toLowerCase())) {
+                            filteredList.add(shoe);
+                        }
+                    }
+                }
+
+                return filteredList;
+            }
 
 
         });
+
+
     }
-
-    }
-
-
-
-
+}
