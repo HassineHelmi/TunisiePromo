@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -66,20 +67,23 @@ public class ProductDetailsActivity extends AppCompatActivity {
                     finish();
                 }
             });
-
-            // Handle Add to Cart Button click
-            addToCartButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // Get the selected quantity from the NumberPicker
-                    int selectedQuantity = quantityNumberPicker.getValue();
-
-                    // Implement your logic to add the product to the cart with the selected quantity
-                    // You can use SharedPreferences, a database, or any other storage method to save the cart information
-                    // For demonstration purposes, we'll just print the quantity for now
-                    System.out.println("Adding to cart: Quantity = " + selectedQuantity);
-                }
-            });
+        //displaying produtct details ends heeeereee************
+        addToCartButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                int selectedQuantity = quantityNumberPicker.getValue();
+                ShoppingCartManager.addToCart(selectedShoe, selectedQuantity);
+                //provide information to the user when the prdct is added to cart
+                Toast.makeText(ProductDetailsActivity.this, "Added to Cart", Toast.LENGTH_SHORT).show();
+            }
+        });
         }
+        // Handle Add to Cart Button click
+
     }
+
+
+
+
+
 }

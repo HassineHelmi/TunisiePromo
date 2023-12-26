@@ -34,6 +34,7 @@ public class HomePage extends AppCompatActivity {
     private Button athleticCategoryButton;
     private Button casualCategoryButton;
     private Button formalCategoryButton;
+    private Button CartButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +75,15 @@ public class HomePage extends AppCompatActivity {
 
                 })
         );
-
+        // Set up the "Cart" button click listener
+        CartButton = findViewById(R.id.cartButton);
+        CartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Redirect to AddToCartActivity
+                startActivity(new Intent(HomePage.this, AddToCartActivity.class));
+            }
+        });
         // Setting up filtering products by categories
         athleticCategoryButton = findViewById(R.id.AthleticCategoryButton);
         casualCategoryButton = findViewById(R.id.CasualCategoryButton);
@@ -149,6 +158,9 @@ public class HomePage extends AppCompatActivity {
                 return filteredList;
             }
         });
+
+
+
     }
 
     // Filter the list by category

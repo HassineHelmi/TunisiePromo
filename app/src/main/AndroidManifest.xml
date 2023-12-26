@@ -37,6 +37,9 @@
 
             <!-- Include any necessary intent filters or other configurations -->
         </activity>
+        <activity android:name=".AddToCartActivity">
+
+        </activity>
     </application>
 
 </manifest>
