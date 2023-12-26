@@ -1,8 +1,9 @@
 package com.example.tunisiepromo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Shoe {
+public class Shoe  implements Serializable {
     private String shoeId;
     private String Name;
     private String description;

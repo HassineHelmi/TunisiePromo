@@ -1,6 +1,7 @@
 package com.example.tunisiepromo;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,6 +60,29 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         Glide.with(context)
                 .load(shoe.getImage_url())
                 .into(holder.productImage);
+
+        // Set up the click listener for the product item to enable navigation to the product details page
+        // Set an OnClickListener for the product image
+        holder.productImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Get the selected shoe
+                Shoe selectedShoe = shoesList.get(position);
+
+                // Create an Intent to start ProductDetailsActivity
+                Intent intent = new Intent(context, ProductDetailsActivity.class);
+
+                // Pass the selected shoe to the ProductDetailsActivity using Intent
+                intent.putExtra("selectedShoe", selectedShoe);
+
+                // Start the ProductDetailsActivity
+                context.startActivity(intent);
+            }
+        });
+
+
+
+
     }
 
     private String formatPrice(double price) {

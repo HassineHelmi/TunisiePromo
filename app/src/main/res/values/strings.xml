@@ -9,6 +9,7 @@
     <string name="sign_up">sign up</string>
     <string name="search" />
     <string name="tunisie_promo">Tunisie Promo</string>
+    <string name="add_to_cart">Add to Cart</string>
     <string-array name="Role" translatable="true">
         <item>Consumer</item>
         <item>Merchand</item>

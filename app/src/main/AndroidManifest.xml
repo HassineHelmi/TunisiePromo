@@ -33,7 +33,10 @@
 
             <!-- Include any necessary intent filters or other configurations -->
         </activity>
+        <activity android:name=".ProductDetailsActivity">
 
+            <!-- Include any necessary intent filters or other configurations -->
+        </activity>
     </application>
 
 </manifest>

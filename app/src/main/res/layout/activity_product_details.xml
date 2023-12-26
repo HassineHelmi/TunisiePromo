@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Product Image -->
+    <ImageView
+        android:id="@+id/productImageView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        tools:src="@drawable/tunsiepromologo" />
+
+    <!-- Product Name -->
+    <TextView
+        android:id="@+id/productNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/productImageView"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Product Name"
+        android:textSize="26sp" />
+
+    <!-- Product Description -->
+    <TextView
+        android:id="@+id/productDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/productNameTextView"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Product Description"
+        android:textSize="16sp" />
+
+    <!-- Available Shoe Sizes -->
+    <TextView
+        android:id="@+id/shoeSizesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/productDescriptionTextView"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Available Shoe Sizes: 8, 9, 10, 11"
+        android:textSize="16sp" />
+
+    <!-- Quantity Label -->
+    <TextView
+        android:id="@+id/quantityLabelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/shoeSizesTextView"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="55dp"
+        android:text="Quantity : "
+        android:textSize="16sp" />
+
+    <!-- Quantity NumberPicker -->
+    <NumberPicker
+        android:id="@+id/quantityNumberPicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/shoeSizesTextView"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_toRightOf="@id/quantityLabelTextView"
+        android:layout_toEndOf="@id/quantityLabelTextView"
+        android:value="1" />
+
+    <!-- Buttons Container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/quantityNumberPicker"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <!-- Go Back Shopping Button -->
+        <Button
+            android:id="@+id/goBackShoppingButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="8dp"
+            android:text="Go Back Shopping"
+            android:backgroundTint="#8BC34A" />
+
+        <!-- Add to Cart Button -->
+        <Button
+            android:id="@+id/addToCartButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="8dp"
+            android:text="@string/add_to_cart"
+            android:backgroundTint="@color/loginbutton" />
+    </LinearLayout>
+
+    <!-- Add other UI elements as needed -->
+
+</RelativeLayout>

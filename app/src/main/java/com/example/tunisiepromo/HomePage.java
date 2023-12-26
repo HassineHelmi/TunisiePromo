@@ -1,10 +1,12 @@
 package com.example.tunisiepromo;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
@@ -24,7 +26,7 @@ import java.util.List;
 
 public class HomePage extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private ProductAdapter productAdapter; // Use ProductAdapter, not ProductViewHolder
+    private ProductAdapter productAdapter;
     private androidx.appcompat.widget.SearchView searchView;
 
     private List<Shoe> shoesList;
@@ -32,9 +34,6 @@ public class HomePage extends AppCompatActivity {
     private Button athleticCategoryButton;
     private Button casualCategoryButton;
     private Button formalCategoryButton;
-
-
-    private Button buttonAddToCart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,32 +43,46 @@ public class HomePage extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         shoesList = new ArrayList<>();
-        productAdapter = new ProductAdapter(shoesList, this); // Corrected usage
+        productAdapter = new ProductAdapter(shoesList, this);
         recyclerView.setAdapter(productAdapter);
 
+        // Set up the SearchView
         int hintColor = Color.GRAY;
         String hintText = "What are you looking for ?";
         SpannableString spannableString = new SpannableString(hintText);
         spannableString.setSpan(new ForegroundColorSpan(hintColor), 0, hintText.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
+        // Set an OnClickListener for the RecyclerView
+        recyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(this, recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        // Handle click on the entire item if needed
+                        // This can be used in case the image click is not sufficient
+                        Shoe selectedShoe = shoesList.get(position);
+
+                        // Create an Intent to start ProductDetailsActivity
+                        Intent intent = new Intent(HomePage.this, ProductDetailsActivity.class);
+
+                        // Pass the selected shoe to the ProductDetailsActivity
+                        intent.putExtra("shoe", selectedShoe);
+
+                        // Start the ProductDetailsActivity
+                        startActivity(intent);
+                    }
 
 
-        //setting up filtering products bu categories
+                })
+        );
+
+        // Setting up filtering products by categories
         athleticCategoryButton = findViewById(R.id.AthleticCategoryButton);
         casualCategoryButton = findViewById(R.id.CasualCategoryButton);
         formalCategoryButton = findViewById(R.id.FormalCategoryButton);
 
-
         athleticCategoryButton.setOnClickListener(view -> filterByCategory("Athletic"));
         casualCategoryButton.setOnClickListener(view -> filterByCategory("Casual"));
         formalCategoryButton.setOnClickListener(view -> filterByCategory("Formal"));
-
-
-
-
-
-
-
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("/products");
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -86,14 +99,14 @@ public class HomePage extends AppCompatActivity {
                         // Log or display an error message for better debugging
                     }
                 }
-                originalShoesList =new ArrayList<>();
+                originalShoesList = new ArrayList<>();
                 originalShoesList.addAll(shoesList);
                 productAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                //handle databaseError
+                // Handle databaseError
             }
         });
 
@@ -102,7 +115,6 @@ public class HomePage extends AppCompatActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-
                 // Clear the current list before adding filtered items
                 shoesList.clear();
                 shoesList.addAll(filterByName(query));
@@ -118,6 +130,7 @@ public class HomePage extends AppCompatActivity {
                 productAdapter.notifyDataSetChanged();
                 return true;
             }
+
             public List<Shoe> filterByName(String newText) {
                 List<Shoe> filteredList = new ArrayList<>();
 
@@ -135,15 +148,11 @@ public class HomePage extends AppCompatActivity {
 
                 return filteredList;
             }
-
-
         });
-
-
     }
 
     // Filter the list by category
-    private void filterByCategory(String category){
+    private void filterByCategory(String category) {
         // Clear the current list before adding filtered items
         shoesList.clear();
 
@@ -161,5 +170,4 @@ public class HomePage extends AppCompatActivity {
 
         productAdapter.notifyDataSetChanged();
     }
-    }
-
+}

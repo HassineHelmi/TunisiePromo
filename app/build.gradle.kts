@@ -52,4 +52,5 @@ dependencies {
     implementation ("com.google.firebase:firebase-database:20.3.0")
     implementation ("com.github.bumptech.glide:glide:4.12.0") // Use the latest version available
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
+    implementation ("com.squareup.picasso:picasso:2.71828")
 }
