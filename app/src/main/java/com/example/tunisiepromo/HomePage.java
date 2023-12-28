@@ -35,6 +35,7 @@ public class HomePage extends AppCompatActivity {
     private Button casualCategoryButton;
     private Button formalCategoryButton;
     private Button CartButton;
+    private Button addButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +47,16 @@ public class HomePage extends AppCompatActivity {
         shoesList = new ArrayList<>();
         productAdapter = new ProductAdapter(shoesList, this);
         recyclerView.setAdapter(productAdapter);
-
+        //set the add product button
+        // Set up the "Add" button click listener
+        addButton = findViewById(R.id.buttonAddProduct);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Redirect to AddProduct activity
+                startActivity(new Intent(HomePage.this, AddProduct.class));
+            }
+        });
         // Set up the SearchView
         int hintColor = Color.GRAY;
         String hintText = "What are you looking for ?";

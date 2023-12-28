@@ -10,8 +10,27 @@
     <string name="search" />
     <string name="tunisie_promo">Tunisie Promo</string>
     <string name="add_to_cart">Add to Cart</string>
+    <string name="add_product">Add Product</string>
+    <string name="product_category">Product Category :</string>
+    <string name="todo">TODO</string>
+    <string name="enter_your_product_price">Enter your Product Price</string>
+    <string name="price">Price :</string>
+    <string name="product_description">Product Description :</string>
+    <string name="product_image">Product Image :</string>
+    <string name="enter_you_product_name">Enter you product name</string>
+    <string name="product_name">Product Name :</string>
+    <string name="enter_your_promotion_value">Enter your Promotion value</string>
+    <string name="promotion">Promotion :</string>
+    <string name="_38_39_40_41_42_43_44_45">38, 39, 40, 41, 42, 43, 44, 45</string>
+    <string name="available_sizes">Available Sizes :</string>
+    <string name="add_your_own_product">Add Your Own Product</string>
     <string-array name="Role" translatable="true">
         <item>Consumer</item>
         <item>Merchand</item>
+    </string-array>
+    <string-array name="category_entries">
+        <item>Casual</item>
+        <item>Athletic</item>
+        <item>Formal</item>
     </string-array>
 </resources>
