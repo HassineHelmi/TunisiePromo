@@ -154,7 +154,7 @@ public class HomePage extends AppCompatActivity {
                 List<Shoe> filteredList = new ArrayList<>();
 
                 // If the search query is empty, display the original list
-                if (newText.isEmpty()) {
+                if (newText == null || newText.isEmpty()) {
                     filteredList.addAll(originalShoesList);
                 } else {
                     // If the search query is not empty, display the filtered list
@@ -167,6 +167,7 @@ public class HomePage extends AppCompatActivity {
 
                 return filteredList;
             }
+
         });
 
 
