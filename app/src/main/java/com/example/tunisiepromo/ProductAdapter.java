@@ -1,5 +1,6 @@
 package com.example.tunisiepromo;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
@@ -12,7 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
 
 import java.text.DecimalFormat;
 import java.util.List;
@@ -37,7 +38,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ProductViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Shoe shoe = shoesList.get(position);
 
         // Bind data to views
@@ -56,10 +57,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         String formattedPromotion = formatPromotion(shoe.getPromotionPercentage());
         holder.promotion.setText(formattedPromotion);
 
-        // Use Glide to load the image from the URL
-        Glide.with(context)
-                .load(shoe.getImage_url())
-                .into(holder.productImage);
+        // Use picasso to load the image from the URL
+        Picasso.get().load(shoe.getImage_url()).into(holder.productImage);
+
 
         // Set up the click listener for the product item to enable navigation to the product details page
         // Set an OnClickListener for the product image

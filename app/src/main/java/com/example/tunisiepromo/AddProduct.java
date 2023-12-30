@@ -28,8 +28,9 @@ public class AddProduct extends AppCompatActivity {
 
     private EditText productNameEditText;
     private EditText productDescriptionEditText;
-    private EditText priceAPEditText;
+
     private EditText priceBPEditText;
+    private EditText priceAPEditText;
     private EditText promotionPercentageEditText;
     private CheckBox sizeCheckBox;
     private ImageView imageViewProduct;
@@ -45,7 +46,8 @@ public class AddProduct extends AppCompatActivity {
         // Setting the elements of the page by id
         productNameEditText = findViewById(R.id.productNameEditText);
         productDescriptionEditText = findViewById(R.id.productDescriptionEditText);
-        priceAPEditText = findViewById(R.id.priceEditText);
+        priceBPEditText = findViewById(R.id.priceEditText);
+
         promotionPercentageEditText = findViewById(R.id.promotionEditText);
         sizeCheckBox = findViewById(R.id.sizeCheckBox);
         imageViewProduct = findViewById(R.id.imageViewProduct);
@@ -80,24 +82,29 @@ public class AddProduct extends AppCompatActivity {
 
         if (!productName.isEmpty() && selectedImageUri != null) {
             FirebaseDatabase database = FirebaseDatabase.getInstance();
-            StorageReference storageRef = FirebaseStorage.getInstance().getReference("product_images/" + "product_image.jpg");
+
+            // Get the selected category from the spinner
+            String selectedCategory = productCategorySpinner.getSelectedItem().toString();
+
+            // Create a reference to the category folder in Firebase Storage
+            StorageReference storageRef = FirebaseStorage.getInstance().getReference("shoes_img/" + selectedCategory.toLowerCase() + "/" + productName);
 
             UploadTask uploadTask = storageRef.putFile(selectedImageUri);
             uploadTask.addOnSuccessListener(taskSnapshot -> {
                 storageRef.getDownloadUrl().addOnSuccessListener(uri -> {
                     String imageUrl = uri.toString();
                     String productDescription = productDescriptionEditText.getText().toString().trim();
-                    double priceAP = Double.parseDouble(priceAPEditText.getText().toString().trim());
-                    double priceBP = Double.parseDouble(priceBPEditText.getText().toString().trim());
+                    double priceBP = Double.parseDouble(priceBPEditText.getText().toString().trim()); // Added this line
                     int promotionPercentage = Integer.parseInt(promotionPercentageEditText.getText().toString().trim());
                     List<Integer> size = (sizeCheckBox.isChecked()) ? generateSizeList() : new ArrayList<>();
-                    String category = productCategorySpinner.getSelectedItem().toString();
+                    String category = selectedCategory;
 
                     // Calculate the final price based on the provided values
-                    double finalPrice = calculateFinalPrice(priceAP, promotionPercentage);
+                    double finalPrice = calculateFinalPrice( priceBP, promotionPercentage);
 
                     // Create a new Shoe object with all details
-                    Shoe product = new Shoe(null, productName, productDescription, imageUrl, priceAP, finalPrice, promotionPercentage, size, category);
+                    Shoe product = new Shoe(null, productName, productDescription, imageUrl,priceBP, finalPrice, promotionPercentage, size, category);
+
                     // Assuming you have a "products" node in your database
                     database.getReference("products").push().setValue(product);
 
@@ -110,9 +117,11 @@ public class AddProduct extends AppCompatActivity {
         }
     }
 
-    private double calculateFinalPrice(double priceAP, int promotionPercentage) {
+    private double calculateFinalPrice(double priceBP, int promotionPercentage) {
         // Calculate the final price based on the provided values
-        return priceAP - (priceAP * (promotionPercentage / 100.0));
+        double finalPrice = priceBP * (1 - promotionPercentage / 100.0);
+        System.out.println("The final price is: " + finalPrice);
+        return finalPrice;
     }
 
     private List<Integer> generateSizeList() {
@@ -120,6 +129,12 @@ public class AddProduct extends AppCompatActivity {
         // Add your logic to generate the size list based on your requirements
         sizes.add(38);
         sizes.add(39);
+        sizes.add(40);
+        sizes.add(41);
+        sizes.add(42);
+        sizes.add(43);
+        sizes.add(44);
+        sizes.add(45);
         // Add more sizes as needed
         return sizes;
     }

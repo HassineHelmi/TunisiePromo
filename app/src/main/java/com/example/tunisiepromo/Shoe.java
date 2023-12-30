@@ -17,7 +17,7 @@ public class Shoe  implements Serializable {
     public Shoe() {
     }
 
-    public Shoe(String shoeId, String name, String description, String imageUrl, double priceAP, double priceBP, int promotionPercentage, List<Integer> size, String category) {
+    public Shoe(String shoeId, String name, String description, String imageUrl, double priceBP, double priceAP, int promotionPercentage, List<Integer> size, String category) {
         this.shoeId = shoeId;
         this.Name = name;
         this.description = description;
